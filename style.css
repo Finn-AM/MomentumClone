@@ -85,7 +85,7 @@ body {
 }
 
 .greeting-text {
-  font-size: 3rem;
+  font-size: 2.75rem;
   font-weight: bold;
 }
 .random-quotes {
@@ -122,25 +122,157 @@ body {
 .todo,
 .weather,
 .links,
-.photographer {
+.credit {
   position: absolute;
 }
 .todo {
-  bottom: 0;
-  right: 0;
+  bottom: 10px;
+  right: 20px;
 }
 
-.photographer {
-  bottom: 0;
-  left: 0;
+.credit {
+  bottom: 20px;
+  left: 20px;
+  font-size: 0.8rem;
 }
 
 .links {
-  top: 0;
-  left: 0;
+  top: 20px;
+  left: 20px;
 }
 
+/* Weather */
 .weather {
   right: 0;
   top: 0;
+  height: 80px;
+  width: 130px;
+  display: grid;
+  grid-template-areas:
+    'img temp'
+    'none loc';
+}
+
+.user-temp {
+  font-family: fantasy;
+  font-weight: normal;
+  font-size: 1.55rem;
+  grid-area: temp;
+}
+
+.user-location {
+  grid-area: loc;
+  font-size: 1rem;
+  transform: translateY(-20px);
+}
+
+.weatherIcon {
+  grid-area: img;
+  transform: translate(20px, -5px);
+}
+/* Weather done */
+
+/* Links */
+
+.link {
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  font-size: 1.15rem;
+}
+
+.links {
+  display: flex;
+  width: 240px;
+}
+.magnifier {
+  width: 20px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.link-expand {
+  position: absolute;
+  transform: scale(0);
+}
+.link-expand * {
+  z-index: 1;
+  position: relative;
+}
+
+.link-expand img {
+  height: 20px;
+  top: 5px;
+}
+
+.link-expand P {
+  top: 10px;
+  left: 10px;
+}
+.link-expand a {
+  text-decoration: none;
+}
+
+.link-expand.show {
+  transform: scale(1);
+  position: absolute;
+  height: 90px;
+  width: 240px;
+  background-color: white;
+  color: black;
+  top: 50px;
+  border-radius: 5px;
+  transition: 300ms all ease;
+}
+
+.link-expand::before {
+  position: absolute;
+  content: '';
+  top: -10px;
+  left: 5px;
+  height: 0px;
+  width: 2px;
+  border-left: 12.5px solid transparent;
+  border-right: 12.5px solid transparent;
+  border-bottom: 20px solid white;
+  border-radius: 2px;
+}
+
+.searchInput {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+  transform: translate(5px, 5px);
+  transition: 500ms all ease;
+}
+
+.searchInput:hover {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.646);
+}
+
+.searchInput:hover + .google {
+  transform: scale(1);
+  opacity: 0.4;
+}
+.searchInput:focus {
+  border-bottom: 2px solid white;
+}
+
+.searchInput:focus + .google {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.google {
+  height: 20px;
+  position: absolute;
+  right: 0;
+  transform: scale(0);
+  transition: 500ms all ease;
+}
+/* links done */
+
+.credit a {
+  text-decoration: none;
+  color: white;
 }

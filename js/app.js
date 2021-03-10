@@ -35,3 +35,32 @@ function getTime(name) {
   else if (hours >= 18) greetText.innerText = `Good Evening, ${name}`;
   else return;
 }
+
+// Make sure it's changing time
+setInterval(getTime(name), 1000);
+
+// links top left
+let link = document.querySelector('.link');
+let linkContainer = document.querySelector('.link-expand');
+
+link.addEventListener('click', () => {
+  linkContainer.classList.toggle('show');
+});
+
+// searching google
+
+let search = document.querySelector('.form-link');
+let searchInput = document.querySelector('.searchInput');
+
+search.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let query = searchInput.value;
+  window.open(`https://www.google.com/search?q=${query}`, '__blank');
+  // window.location.assign()
+});
+
+let magnifier = document.querySelector('.magnifier');
+
+magnifier.addEventListener('click', () => {
+  searchInput.focus();
+});

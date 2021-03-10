@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
 
+    <script src="js/weather.js" defer></script>
     <script src="js/random.js" defer></script>
     <script src="js/app.js" defer></script>
     <title>Momentum</title>
@@ -30,24 +31,42 @@
         <p class="time-content"></p>
         <h1 class="greeting-text"></h1>
         <div class="">
-          <p class="question">what is your main focus today</p>
+          <p class="question">what is your main focus for today?</p>
           <input type="text" class="main-input" />
         </div>
-        <h4 class="random-quotes">
-          Whatever you see, through all the rain and pain, You gotta keep a
-          sense of humor. Gotta be able to smile through all this bullshit
-        </h4>
+        <h4 class="random-quotes"></h4>
         <h5 class="quoter"></h5>
       </main>
       <div class="links">
-        <i>github</i>
-        <i>Instagram</i>
+        <span class="link">Links</span>
+        <div class="link-expand">
+          <p>
+            <span><img src="./icon/github.svg" alt="" /></span>
+            <a href="https://github.com/Finn-AM" target="_blank">Github</a>
+          </p>
+          <p>
+            <span><img src="./icon/instagram.svg" alt="" /></span>
+            <a href="https://www.instagram.com/finn_ahamed/" target="_blank"
+              >Instagram</a
+            >
+          </p>
+        </div>
+        <img class="magnifier" src="./icon/magnifier.svg" alt="" />
+        <form class="form-link">
+          <input class="searchInput" type="text" />
+          <img class="google" src="./icon/google.svg" alt="" />
+        </form>
       </div>
       <div class="weather">
-        <p>weather</p>
+        <img src="" alt="weatherIcon" class="weatherIcon" />
+        <b class="user-temp">weather</b>
+        <p class="user-location">weather</p>
       </div>
       <h2 class="todo">Todo</h2>
-      <h3 class="photographer">tobias-bjørkli / pexels</h3>
+      <p class="credit">
+        <span class="photographer">tobias-bjørkli </span>
+        <a class="img-link" href="#" target="__blank">/ Pexels</a>
+      </p>
     </section>
   </body>
 </html>
