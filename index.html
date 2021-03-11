@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
 
+    <script src="js/todo.js" defer></script>
     <script src="js/weather.js" defer></script>
     <script src="js/random.js" defer></script>
     <script src="js/app.js" defer></script>
@@ -30,9 +31,11 @@
       <main class="main-scene">
         <p class="time-content"></p>
         <h1 class="greeting-text"></h1>
-        <div class="">
+        <div class="mid-todo-container">
           <p class="question">what is your main focus for today?</p>
-          <input type="text" class="main-input" />
+          <form class="main-form">
+            <input type="text" class="main-input" />
+          </form>
         </div>
         <h4 class="random-quotes"></h4>
         <h5 class="quoter"></h5>
@@ -62,11 +65,26 @@
         <b class="user-temp">weather</b>
         <p class="user-location">weather</p>
       </div>
-      <h2 class="todo">Todo</h2>
       <p class="credit">
         <span class="photographer">tobias-bjørkli </span>
         <a class="img-link" href="#" target="__blank">/ Pexels</a>
       </p>
+      <h2 class="todo">Todo</h2>
+      <div class="todos hide">
+        <h1>Today todos</h1>
+        <hr />
+        <div class="todo-container">
+          <!-- Todo item -->
+        </div>
+        <form class="todo-form">
+          <input
+            type="text"
+            class="realTodoInput"
+            autocomplete="off"
+            placeholder="New Todo"
+          />
+        </form>
+      </div>
     </section>
   </body>
 </html>

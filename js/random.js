@@ -37,7 +37,6 @@ let randomQuotes = Math.floor(Math.random() * quotesArray.length);
 quotes.textContent = quotesArray[randomQuotes].quotes;
 quoter.textContent = quotesArray[randomQuotes].name;
 
-// Add random quotes & change every 1 minute
 let backgroundArray = [
   {
     id: 1,
@@ -61,6 +60,7 @@ let backgroundArray = [
   },
 ];
 
+// Add random awesome background
 let randomBackground = Math.floor(Math.random() * backgroundArray.length);
 let photographer = document.querySelector('.photographer');
 let source = document.querySelector('.img-link');

@@ -16,6 +16,10 @@ body {
   transition: 1s all ease;
 }
 
+button {
+  cursor: pointer;
+}
+
 .scene-container {
   display: flex;
   justify-content: center;
@@ -91,7 +95,7 @@ body {
 .random-quotes {
   width: 70%;
   margin: 2rem auto;
-  /* transition: 1s all ease; */
+  margin-top: 8rem;
 }
 
 .question {
@@ -128,6 +132,7 @@ body {
 .todo {
   bottom: 10px;
   right: 20px;
+  cursor: pointer;
 }
 
 .credit {
@@ -275,4 +280,76 @@ body {
 .credit a {
   text-decoration: none;
   color: white;
+}
+
+/* mid todos */
+
+.mainform.hide,
+.main-input.hide,
+.question.hide {
+  transform: scale(0);
+  position: absolute;
+  opacity: 0;
+  transition: 500ms all ease;
+}
+
+.mid-todo-container {
+  position: relative;
+  height: 10vh;
+}
+
+.midTodo {
+  display: inline;
+  font-size: 2rem;
+  margin: 0 1rem;
+}
+
+.midTodo.checked {
+  text-decoration: line-through black 3px;
+}
+
+.praise {
+  font-size: 1rem;
+  position: relative;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+  position: relative;
+  height: 30px;
+  width: 20px;
+  top: 10px;
+}
+
+/* Bottom todos */
+
+.todos {
+  position: absolute;
+  color: black;
+  padding: 1rem;
+  width: 320px;
+  height: auto;
+  max-height: 40vh;
+  overflow-y: scroll;
+  background-color: white;
+  border-radius: 5px;
+  bottom: 50px;
+  right: 5px;
+}
+.todos.hide {
+  visibility: hidden;
+}
+
+.todo-item {
+  display: inline;
+  margin-right: 10px;
+}
+
+.tempInput {
+  display: inline;
+}
+
+.todo-wrap {
+  margin-bottom: 10px;
+  position: relative;
 }
