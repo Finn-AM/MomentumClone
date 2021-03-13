@@ -1,30 +1,28 @@
 const quotesArray = [
   {
     id: 1,
-    name: 'Unknown',
-    quotes: 'If people are talking behind your back, then just fart',
+    name: '~ Unknown',
+    quotes: `"If people are talking behind your back, then just fart"`,
   },
   {
     id: 2,
-    name: 'Bill Murray',
-    quotes: "Whatever you do, always give 100%. Unless you're donating blood",
+    name: '~ Bill Murray',
+    quotes: `"Whatever you do, always give 100%. Unless you're donating blood"`,
   },
   {
     id: 3,
-    name: 'Tupac',
-    quotes:
-      'Whatever you see, through all the rain and pain, You gotta keep a sense of humor. Gotta be able to smile through all this bullshit',
+    name: '~ Tupac',
+    quotes: `"Whatever you see, through all the rain and pain, You gotta keep a sense of humor. Gotta be able to smile through all this bullshit"`,
   },
   {
     id: 4,
-    name: 'Betty Reese',
-    quotes:
-      'If you think, you are too small to be effective, you have never been in dark with mosquitos',
+    name: '~ Betty Reese',
+    quotes: `"If you think, you are too small to be effective, you have never been in dark with mosquitos"`,
   },
   {
     id: 5,
-    name: 'Unknown',
-    quotes: 'Life is too short, smile while you still have teeth',
+    name: '~ Unknown',
+    quotes: `"Life is too short, smile while you still have teeth"`,
   },
 ];
 
@@ -69,5 +67,9 @@ function changeBackground() {
   document.body.style.backgroundImage = backgroundArray[randomBackground].img;
   photographer.textContent = backgroundArray[randomBackground].name;
   source.setAttribute('href', backgroundArray[randomBackground].url);
-  console.log('hello world');
+  console.log("hello world, if you seeing this, you're awesome ");
+  document.body.animate([{ opacity: '0.1' }, { opacity: '1' }], {
+    duration: 1000,
+    fill: 'forwards',
+  });
 }

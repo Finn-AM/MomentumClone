@@ -1,19 +1,17 @@
-function getUserCity() {
-  fetch('http://ip-api.com/json')
-    .then((res) => res.json())
-    .then((response) => {
-      const city = response.city;
-      fetchWeather(city);
-    })
-    .catch((error) => {
-      console.log('Request failed');
-    });
+function askLocation() {
+  navigator.geolocation.getCurrentPosition(allowed, ignored);
 }
 
-function fetchWeather(city) {
+function allowed(position) {
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  fetchWeather(lat, lon);
+}
+
+function fetchWeather(lat, lon) {
   let APIKey = '9d6d1f9449a6ca9bea8a56d9917534a5';
   let unit = 'metric';
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=${unit}`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}&units=${unit}`;
 
   fetch(url)
     .then((res) => res.json())
@@ -31,11 +29,17 @@ function fetchWeather(city) {
 let myTemp = document.querySelector('.user-temp');
 let myPlace = document.querySelector('.user-location');
 let myIcon = document.querySelector('.weatherIcon');
+let weatherdiv = document.querySelector('.weather');
 
 function setWeather(temp, place, icon) {
   myTemp.textContent = temp + '°C';
   myPlace.textContent = place;
+
   myIcon.setAttribute('src', `http://openweathermap.org/img/wn/${icon}.png`);
 }
 
-getUserCity();
+function ignored() {
+  weatherdiv.style.display = 'none';
+}
+
+askLocation();

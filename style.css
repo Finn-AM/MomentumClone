@@ -24,6 +24,9 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  background-color: black;
+  z-index: 2;
   width: 100vw;
   height: 100vh;
 }
@@ -72,6 +75,7 @@ button {
   width: 100vw;
   position: relative;
   min-height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,6 +90,7 @@ button {
 .time-content {
   font-size: 9rem;
   font-weight: 900;
+  pointer-events: none;
 }
 
 .greeting-text {
@@ -188,7 +193,9 @@ button {
 .links {
   display: flex;
   width: 240px;
+  align-items: flex-start;
 }
+
 .magnifier {
   width: 20px;
   cursor: pointer;
@@ -271,6 +278,7 @@ button {
 .google {
   height: 20px;
   position: absolute;
+  top: 0;
   right: 0;
   transform: scale(0);
   transition: 500ms all ease;
@@ -287,10 +295,9 @@ button {
 .mainform.hide,
 .main-input.hide,
 .question.hide {
-  transform: scale(0);
-  position: absolute;
-  opacity: 0;
+  visibility: hidden;
   transition: 500ms all ease;
+  transform: scale(0);
 }
 
 .mid-todo-container {
@@ -325,9 +332,11 @@ input[type='checkbox'] {
 
 .todos {
   position: absolute;
+  word-wrap: break-word;
   color: black;
   padding: 1rem;
   width: 320px;
+  max-width: 320px;
   height: auto;
   max-height: 40vh;
   overflow-y: scroll;
@@ -343,6 +352,7 @@ input[type='checkbox'] {
 .todo-item {
   display: inline;
   margin-right: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .tempInput {
@@ -352,4 +362,25 @@ input[type='checkbox'] {
 .todo-wrap {
   margin-bottom: 10px;
   position: relative;
+}
+
+@media screen and (max-width: 800px) {
+  .time-content {
+    font-size: 7rem;
+  }
+  .greeting-text {
+    font-size: 2rem;
+  }
+  .question {
+    font-size: 1.55rem;
+  }
+  .random-quotes {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .random-quotes {
+    font-size: 0.75rem;
+  }
 }

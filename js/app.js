@@ -14,6 +14,7 @@ function getName(e) {
     inputContainer.classList.add('hide');
     greetText.innerText = `Good Morning, ${name}`;
     getTime(name);
+    setName(name);
     changeBackground();
   } else {
     // alert('empty');
@@ -30,8 +31,8 @@ function getTime(name) {
   todayTime.innerText = `${hours}:${minutes}`;
 
   // Greetings
-
-  if (hours > 12) greetText.innerText = `Good Evening, ${name}`;
+  if (hours < 12) greetText.innerText = `Good Morning, ${name}`;
+  else if (hours > 12) greetText.innerText = `Good Afternoon, ${name}`;
   else if (hours >= 18) greetText.innerText = `Good Evening, ${name}`;
   else return;
 }
@@ -57,6 +58,7 @@ search.addEventListener('submit', (e) => {
   let query = searchInput.value;
   window.open(`https://www.google.com/search?q=${query}`, '__blank');
   // window.location.assign()
+  searchInput.value = '';
 });
 
 let magnifier = document.querySelector('.magnifier');
@@ -64,3 +66,23 @@ let magnifier = document.querySelector('.magnifier');
 magnifier.addEventListener('click', () => {
   searchInput.focus();
 });
+
+// Set user to local storage
+
+const USERNAME = 'Username';
+
+function setName(name) {
+  localStorage.setItem(USERNAME, JSON.stringify(name));
+}
+
+function checkUser() {
+  let userLogin = localStorage.getItem(USERNAME);
+  if (userLogin === null) {
+  } else {
+    let name = JSON.parse(userLogin);
+    getTime(name);
+    changeBackground();
+    inputContainer.classList.add('hide');
+  }
+}
+checkUser();
