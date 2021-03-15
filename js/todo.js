@@ -3,6 +3,7 @@ let midForm = document.querySelector('.main-form');
 let midInput = document.querySelector('.main-input');
 let question = document.querySelector('.question');
 let midTodoContainer = document.querySelector('.mid-todo-container');
+let adding = true;
 
 midForm.addEventListener('submit', addMainFocus);
 
@@ -23,15 +24,17 @@ function addFocus(mainFocus) {
   delBtn.innerText = '❌';
   checkBtn.setAttribute('type', 'checkbox');
 
-  smallTodo.appendChild(checkBtn);
-  smallTodo.appendChild(todo);
-  smallTodo.appendChild(delBtn);
+  if (mainFocus !== '') {
+    smallTodo.appendChild(checkBtn);
+    smallTodo.appendChild(todo);
+    smallTodo.appendChild(delBtn);
 
-  midTodoContainer.appendChild(smallTodo);
+    midTodoContainer.appendChild(smallTodo);
 
-  midForm.classList.add('hide');
-  midInput.classList.add('hide');
-  question.classList.add('hide');
+    midForm.classList.add('hide');
+    midInput.classList.add('hide');
+    question.classList.add('hide');
+  }
 
   setMidTodos(mainFocus);
 
@@ -139,7 +142,6 @@ function addTodos(value) {
   let todoItem = document.createElement('h5');
   let deleteButton = document.createElement('button');
   let editButton = document.createElement('button');
-
   todoItem.setAttribute('class', 'todo-item');
   deleteButton.setAttribute('class', 'deleteBtn');
   todoWrap.setAttribute('class', 'todo-wrap');
@@ -154,12 +156,15 @@ function addTodos(value) {
   todoWrap.appendChild(editButton);
   let todoObj = { value, id };
 
-  if (todoInput.value !== '' || todoLS !== null) {
+  if (todoInput.value !== '' && adding === true) {
     todoContainer.appendChild(todoWrap);
     todosArr.push(todoObj);
     setTodoLS(value);
+  } else if (todoLS !== null && adding === false) {
+    todosArr.push(todoObj);
+    todoContainer.appendChild(todoWrap);
+    adding = true;
   }
-
   todoInput.value = '';
 
   deleteButton.addEventListener('click', deleteTodos);
@@ -239,8 +244,9 @@ function loadTodoLS() {
   const TodosLS = localStorage.getItem(todoLS);
   if (TodosLS !== null) {
     let parsedTodos = JSON.parse(TodosLS);
-    parsedTodos.forEach((a) => {
-      value = a.value;
+    parsedTodos.forEach((todo) => {
+      adding = false;
+      value = todo.value;
       addTodos(value);
     });
   }
