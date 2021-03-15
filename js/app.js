@@ -38,7 +38,9 @@ function getTime(name) {
 }
 
 // Make sure it's changing time
-setInterval(getTime(name), 1000);
+setInterval(() => {
+  getTime(name);
+}, 1000);
 
 // links top left
 let link = document.querySelector('.link');
