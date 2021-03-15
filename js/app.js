@@ -15,6 +15,7 @@ function getName(e) {
     greetText.innerText = `Good Morning, ${name}`;
     getTime(name);
     setName(name);
+    updateTime(name);
     changeBackground();
   } else {
     // alert('empty');
@@ -38,9 +39,11 @@ function getTime(name) {
 }
 
 // Make sure it's changing time
-setInterval(() => {
-  getTime(name);
-}, 1000);
+function updateTime(name) {
+  setInterval(() => {
+    getTime(name);
+  }, 1000);
+}
 
 // links top left
 let link = document.querySelector('.link');
@@ -84,6 +87,7 @@ function checkUser() {
     let name = JSON.parse(userLogin);
     getTime(name);
     changeBackground();
+    updateTime(name);
     inputContainer.classList.add('hide');
   }
 }
